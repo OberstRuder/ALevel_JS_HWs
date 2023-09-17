@@ -1,0 +1,313 @@
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: orange;
+    overflow: visible;
+    position: relative;
+}
+
+#menu-toggle { 
+    display: none;
+}
+
+.main-menu ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.main-menu ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+}
+
+.burger-menu {
+    display: none;
+}
+
+footer {
+    height: 30px;
+    background-color: #70ba67;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.logo {
+    flex: 1;
+}
+
+.contentside {
+    display: flex;
+    flex-grow: 1;
+}
+
+.contentside h2 {
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+.mainside {
+    flex-grow: 1;
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    min-width: 250px;
+    overflow: hidden;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    width: calc((100% / 3) - 40px);
+    min-height: 350px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.leftside, .rightside {
+    width: 50%;
+    min-width: 60px;
+    text-align: center;
+}
+
+.leftside {
+    background-color: pink;
+    order: 1;
+}
+
+.rightside {
+    background-color: cadetblue;
+    order: 3;
+}
+
+.myimage {
+    width: 75px;
+    height: 75px;
+    border: 8px solid rgb(92, 85, 85);
+    border-radius: 50%;
+    background-image: url('https://img.freepik.com/premium-photo/small-hut-on-shore-of-mountain-lake-on-summer-day_124507-57147.jpg');
+    background-size: cover;
+}
+
+.go {
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 5px 15px;
+    cursor: pointer;
+    margin-top: auto;
+}
+
+.holder {
+    width: 500px;
+    height: 200px;
+    margin: 50px;
+    border: 2px solid black;
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.item {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item:nth-child(1),
+.item:nth-child(5) {
+
+    flex-basis: 50%;
+}
+
+.item:nth-child(3),
+.item:nth-child(2),
+.item:nth-child(4) {
+    flex-grow: 1;
+}
+
+.item:nth-child(1) {
+    background-color: rgb(255, 56, 16);
+}
+  
+.item:nth-child(5) {
+    background-color: rgb(255, 167, 16);
+}
+  
+.item:nth-child(3) {
+    order: 1;
+    background-color: rgb(139, 0, 194);
+}
+  
+.item:nth-child(2) {
+    order: 2;
+    background-color: rgb(16, 227, 255);
+}
+  
+.item:nth-child(4) {
+    order: 3;
+    background-color: rgb(0, 136, 5);
+}
+
+#menu-toggle {
+    display: block;
+    opacity: 0;
+    position: absolute;
+}
+
+.menu-btn {
+    display: flex;
+    align-items: center;
+    top: 20px;
+    left: 20px;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.menu-btn > span,
+.menu-btn > span::before,
+.menu-btn > span::after {
+   display: block;
+   position: absolute;
+   width: 30px;
+   height: 2px;
+   background-color: #616161;
+}
+
+.menu-btn > span::before {
+    content: '';
+    top: -8px;
+}
+
+.menu-btn > span::after {
+    content: '';
+    top: 8px;
+}
+
+.burger-box{
+    position: absolute;
+    visibility: hidden;
+    right: 0px;
+    width: 200px;
+    margin: 18px 0;
+    padding-left: 0;
+    list-style: none;
+    text-align: center;
+    background-color: orange;
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+}
+
+.burger-box li {
+    display: block;
+    padding: 12px 24px;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.burger-box li:hover {
+    background-color: #CFD8DC;
+}
+
+#menu-toggle:checked ~ .menu-btn > span {
+    transform: rotate(45deg);
+}
+  
+#menu-toggle:checked ~ .menu-btn > span::before {
+    top: 0;
+    transform: rotate(0);
+}
+  
+#menu-toggle:checked ~ .menu-btn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+}
+  
+#menu-toggle:checked ~ .burger-box {
+    visibility: visible;
+}
+
+@media (max-width: 991px) {
+    .main-menu {
+        display: none;
+    }
+
+    .burger-menu {
+        display: block;
+    }
+
+    .card {
+        width: calc((100% / 2) - 40px);
+    }
+}
+
+@media (max-width: 767px) {
+    .contentside {
+        flex-direction: column;
+    }
+
+    .mainside {
+        order: 1;
+    }
+
+    .card {
+        width: 80%;
+    }
+
+    .leftside, .rightside {
+        width: auto;
+    } 
+
+    .leftside
+    {
+        order: 2;
+    }
+
+    .rightside {
+        order: 3;
+    }
+
+    .holder {
+        width: 90%;
+    }
+}
